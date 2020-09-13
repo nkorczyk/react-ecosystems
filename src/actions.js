@@ -12,4 +12,11 @@ const removeTodo = text => ({
   payload: { text },
 });
 
-export { CREATE_TODO, createTodo, REMOVE_TODO, removeTodo };
+const COMPLETE_TODO = 'COMPLETED_TODO';
+
+const completeTodo = text => ({
+  type: COMPLETE_TODO,
+  payload: { text },
+});
+
+export { CREATE_TODO, createTodo, REMOVE_TODO, removeTodo, COMPLETE_TODO, completeTodo };

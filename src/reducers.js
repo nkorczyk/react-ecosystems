@@ -1,4 +1,4 @@
-const { CREATE_TODO, REMOVE_TODO } = require('./actions');
+const { CREATE_TODO, REMOVE_TODO, COMPLETE_TODO } = require('./actions');
 
 const todos = (state = [], action) => {
   const { type, payload } = action;
@@ -15,6 +15,15 @@ const todos = (state = [], action) => {
     case REMOVE_TODO: {
       const { text } = payload;
       return state.filter(todo => todo.text !== text);
+    }
+    case COMPLETE_TODO: {
+      const { text } = payload;
+      return state.map(todo => {
+        if (todo.text === text) {
+          return { ...todo, isCompleted: true };
+        }
+        return todo;
+      });
     }
     default:
       return state;
