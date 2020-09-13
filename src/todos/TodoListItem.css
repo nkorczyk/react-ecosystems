@@ -6,6 +6,7 @@
   position: relative;
   box-shadow: 0 4px 8px grey;
 }
+
 .todo-item-container-completed {
   background: #fdd8d8;
   border-radius: 8px;
@@ -39,4 +40,5 @@ button {
   display: inline-block;
   background-color: #ee2222;
   margin-left: 8px;
+  margin-right: 12px;
 }

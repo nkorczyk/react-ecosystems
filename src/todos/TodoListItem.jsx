@@ -3,9 +3,15 @@ import classnames from 'classnames';
 
 import './TodoListItem.css';
 
-const TodoListItem = ({ todo: { text, isCompleted }, onRemovePressed, onCompletedPressed }) => {
+const TodoListItem = ({
+  todo: { text, isCompleted },
+  onRemovePressed,
+  onCompletedPressed,
+  onDisplayAlert,
+}) => {
   const handleRemove = () => onRemovePressed(text);
   const handleComplete = () => onCompletedPressed(text);
+  const handleDisplayAlert = () => onDisplayAlert(text);
 
   const containerClasses = classnames('todo-item-container', {
     ['todo-item-container-completed']: isCompleted,
@@ -22,6 +28,9 @@ const TodoListItem = ({ todo: { text, isCompleted }, onRemovePressed, onComplete
         )}
         <button className="remove-button" onClick={handleRemove} disabled={isCompleted}>
           Remove
+        </button>
+        <button className="alert-button" onClick={handleDisplayAlert}>
+          Display Alert
         </button>
       </div>
     </div>
