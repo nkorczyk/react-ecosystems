@@ -10,7 +10,7 @@ const todos = (state = [], action) => {
         text,
         isCompleted: false,
       };
-      return state.concat(newTodo);
+      return [...state, newTodo];
     }
     case REMOVE_TODO: {
       const { text } = payload;
