@@ -28,7 +28,7 @@ const NewTodoForm = ({ todos, onCreatePressed }) => {
         value={inputValue}
         onChange={handleChange}
       />
-      <button className="new-todo-button" onClick={handleClick}>
+      <button className="new-todo-button" onClick={handleClick} disabled={!inputValue}>
         Create Todo
       </button>
     </div>
