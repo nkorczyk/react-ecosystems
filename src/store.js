@@ -1,6 +1,8 @@
 import { createStore, combineReducers } from 'redux';
 
-const reducers = {};
+import todos from './reducers';
+
+const reducers = { todos };
 
 const rootReducer = combineReducers(reducers);
 
