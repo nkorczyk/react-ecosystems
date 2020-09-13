@@ -19,4 +19,36 @@ const completeTodo = text => ({
   payload: { text },
 });
 
-export { CREATE_TODO, createTodo, REMOVE_TODO, removeTodo, COMPLETE_TODO, completeTodo };
+const LOAD_TODOS_IN_PROGRESS = 'LOAD_TODOS_IN_PROGRESS';
+
+const loadTodosInProgress = () => ({
+  type: LOAD_TODOS_IN_PROGRESS,
+});
+
+const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_IN_PROGRESS';
+
+const loadTodosSuccess = todos => ({
+  type: LOAD_TODOS_SUCCESS,
+  payload: { todos },
+});
+
+const LOAD_TODOS_FAILURE = 'LOAD_TODOS_FAILURE';
+
+const loadTodosFailure = todos => ({
+  type: LOAD_TODOS_FAILURE,
+});
+
+export {
+  CREATE_TODO,
+  createTodo,
+  REMOVE_TODO,
+  removeTodo,
+  COMPLETE_TODO,
+  completeTodo,
+  LOAD_TODOS_IN_PROGRESS,
+  loadTodosInProgress,
+  LOAD_TODOS_SUCCESS,
+  loadTodosSuccess,
+  LOAD_TODOS_FAILURE,
+  loadTodosFailure,
+};
