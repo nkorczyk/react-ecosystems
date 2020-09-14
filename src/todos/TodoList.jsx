@@ -5,6 +5,7 @@ import NewTodoForm from './NewTodoForm';
 import TodoListItem from './TodoListItem';
 import { completeTodo, removeTodo } from '../actions';
 import { completeTodoRequest, displayAlert, loadTodos, removeTodoRequest } from './thunks';
+import { getTodos, getTodosLoading } from './selectors';
 
 import './TodoList.css';
 
@@ -27,6 +28,7 @@ const TodoList = ({
       <NewTodoForm />
       {todos.map(todo => (
         <TodoListItem
+          key={todo.id}
           todo={todo}
           onRemovePressed={onRemovePressed}
           onCompletedPressed={onCompletedPressed}
@@ -40,8 +42,10 @@ const TodoList = ({
 };
 
 const mapStateToProps = state => ({
-  todos: state.todos,
-  isLoading: state.isLoading,
+  // todos: state.todos,
+  // isLoading: state.isLoading,
+  todos: getTodos(state),
+  isLoading: getTodosLoading(state),
 });
 
 const mapDispatchToProps = dispatch => ({
