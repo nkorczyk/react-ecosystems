@@ -1,4 +1,26 @@
-const { CREATE_TODO, REMOVE_TODO, COMPLETE_TODO } = require('./actions');
+const {
+  CREATE_TODO,
+  REMOVE_TODO,
+  COMPLETE_TODO,
+  LOAD_TODOS_IN_PROGRESS,
+  LOAD_TODOS_SUCCESS,
+  LOAD_TODOS_FAILURE,
+} = require('./actions');
+
+const isLoading = (state = false, action) => {
+  const { type } = action;
+
+  switch (type) {
+    case LOAD_TODOS_IN_PROGRESS:
+      return true;
+    case LOAD_TODOS_SUCCESS:
+      return false;
+    case LOAD_TODOS_FAILURE:
+      return false;
+    default:
+      return state;
+  }
+};
 
 const todos = (state = [], action) => {
   const { type, payload } = action;
@@ -30,4 +52,4 @@ const todos = (state = [], action) => {
   }
 };
 
-export default todos;
+export { todos, isLoading };

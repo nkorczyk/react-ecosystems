@@ -25,7 +25,7 @@ const loadTodosInProgress = () => ({
   type: LOAD_TODOS_IN_PROGRESS,
 });
 
-const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_IN_PROGRESS';
+const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_SUCCESS';
 
 const loadTodosSuccess = todos => ({
   type: LOAD_TODOS_SUCCESS,
@@ -34,7 +34,7 @@ const loadTodosSuccess = todos => ({
 
 const LOAD_TODOS_FAILURE = 'LOAD_TODOS_FAILURE';
 
-const loadTodosFailure = todos => ({
+const loadTodosFailure = () => ({
   type: LOAD_TODOS_FAILURE,
 });
 
