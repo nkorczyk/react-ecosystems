@@ -1,8 +1,13 @@
 const CREATE_TODO = 'CREATE_TODO';
 
-const createTodo = text => ({
+// const createTodo = text => ({
+//   type: CREATE_TODO,
+//   payload: { text },
+// });
+
+const createTodo = todo => ({
   type: CREATE_TODO,
-  payload: { text },
+  payload: { todo },
 });
 
 const REMOVE_TODO = 'REMOVE_TODO';
