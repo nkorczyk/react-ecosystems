@@ -24,9 +24,14 @@ const removeTodo = todo => ({
 
 const COMPLETE_TODO = 'COMPLETED_TODO';
 
-const completeTodo = text => ({
+// const completeTodo = text => ({
+//   type: COMPLETE_TODO,
+//   payload: { text },
+// });
+
+const completeTodo = todo => ({
   type: COMPLETE_TODO,
-  payload: { text },
+  payload: { todo },
 });
 
 const LOAD_TODOS_IN_PROGRESS = 'LOAD_TODOS_IN_PROGRESS';

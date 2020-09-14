@@ -46,11 +46,20 @@ const todos = (state = [], action) => {
       const { todo: todoToRemove } = payload;
       return state.filter(todo => todo.id !== todoToRemove.id);
     }
+    // case COMPLETE_TODO: {
+    //   const { text } = payload;
+    //   return state.map(todo => {
+    //     if (todo.text === text) {
+    //       return { ...todo, isCompleted: true };
+    //     }
+    //     return todo;
+    //   });
+    // }
     case COMPLETE_TODO: {
-      const { text } = payload;
+      const { todo: todoCompleted } = payload;
       return state.map(todo => {
-        if (todo.text === text) {
-          return { ...todo, isCompleted: true };
+        if (todo.id === todoCompleted.id) {
+          return todoCompleted;
         }
         return todo;
       });

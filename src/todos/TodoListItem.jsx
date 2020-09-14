@@ -11,7 +11,8 @@ const TodoListItem = ({
 }) => {
   // const handleRemove = () => onRemovePressed(text);
   const handleRemove = () => onRemovePressed(id);
-  const handleComplete = () => onCompletedPressed(text);
+  // const handleComplete = () => onCompletedPressed(text);
+  const handleComplete = () => onCompletedPressed(id);
   const handleDisplayAlert = () => onDisplayAlert(text);
 
   const containerClasses = classnames('todo-item-container', {
