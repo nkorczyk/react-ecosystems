@@ -4,12 +4,13 @@ import classnames from 'classnames';
 import './TodoListItem.css';
 
 const TodoListItem = ({
-  todo: { text, isCompleted },
+  todo: { id, text, isCompleted },
   onRemovePressed,
   onCompletedPressed,
   onDisplayAlert,
 }) => {
-  const handleRemove = () => onRemovePressed(text);
+  // const handleRemove = () => onRemovePressed(text);
+  const handleRemove = () => onRemovePressed(id);
   const handleComplete = () => onCompletedPressed(text);
   const handleDisplayAlert = () => onDisplayAlert(text);
 

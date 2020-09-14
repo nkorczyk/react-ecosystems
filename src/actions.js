@@ -12,9 +12,14 @@ const createTodo = todo => ({
 
 const REMOVE_TODO = 'REMOVE_TODO';
 
-const removeTodo = text => ({
+// const removeTodo = text => ({
+//   type: REMOVE_TODO,
+//   payload: { text },
+// });
+
+const removeTodo = todo => ({
   type: REMOVE_TODO,
-  payload: { text },
+  payload: { todo },
 });
 
 const COMPLETE_TODO = 'COMPLETED_TODO';
