@@ -5,12 +5,21 @@ import NewTodoForm from './NewTodoForm';
 import TodoListItem from './TodoListItem';
 import { completeTodo, removeTodo } from '../actions';
 import { completeTodoRequest, displayAlert, loadTodos, removeTodoRequest } from './thunks';
-import { getTodos, getTodosLoading } from './selectors';
+import { getCompletedTodos, getIncompleteTodos, getTodos, getTodosLoading } from './selectors';
 
 import './TodoList.css';
 
+// const TodoList = ({
+//   todos = [{ text: 'Hello World' }],
+//   onRemovePressed,
+//   onCompletedPressed,
+//   onDisplayAlert,
+//   isLoading,
+//   startLoadingTodos,
+// }) => {
 const TodoList = ({
-  todos = [{ text: 'Hello World' }],
+  incompleteTodos,
+  completedTodos,
   onRemovePressed,
   onCompletedPressed,
   onDisplayAlert,
@@ -23,18 +32,23 @@ const TodoList = ({
 
   const loadingMessage = <div>Loading todos...</div>;
 
+  const todosWrapper = todo => (
+    <TodoListItem
+      key={todo.id}
+      todo={todo}
+      onRemovePressed={onRemovePressed}
+      onCompletedPressed={onCompletedPressed}
+      onDisplayAlert={onDisplayAlert}
+    />
+  );
+
   const content = (
     <div className="list-wrapper">
       <NewTodoForm />
-      {todos.map(todo => (
-        <TodoListItem
-          key={todo.id}
-          todo={todo}
-          onRemovePressed={onRemovePressed}
-          onCompletedPressed={onCompletedPressed}
-          onDisplayAlert={onDisplayAlert}
-        />
-      ))}
+      <h3>Incomplete:</h3>
+      {incompleteTodos.map(todo => todosWrapper(todo))}
+      <h3>Completed:</h3>
+      {completedTodos.map(todo => todosWrapper(todo))}
     </div>
   );
 
@@ -44,7 +58,9 @@ const TodoList = ({
 const mapStateToProps = state => ({
   // todos: state.todos,
   // isLoading: state.isLoading,
-  todos: getTodos(state),
+  // todos: getTodos(state),
+  incompleteTodos: getIncompleteTodos(state),
+  completedTodos: getCompletedTodos(state),
   isLoading: getTodosLoading(state),
 });
 
