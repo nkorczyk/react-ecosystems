@@ -7,6 +7,8 @@ import styled from 'styled-components';
 const TodoItemContainer = styled.div`
   background: #fff;
   border-radius: 8px;
+  border-bottom: ${props =>
+    new Date(props.createdAt) > new Date(Date.now() - 8640000 * 5) ? 'none' : '5px solid red'};
   margin-top: 8px;
   padding: 16px;
   position: relative;
@@ -51,7 +53,7 @@ const RemoveButton = styled.button`
 `;
 
 const TodoListItem = ({
-  todo: { id, text, isCompleted },
+  todo: { id, text, isCompleted, createdAt },
   onRemovePressed,
   onCompletedPressed,
   onDisplayAlert,
@@ -68,9 +70,13 @@ const TodoListItem = ({
 
   return (
     // <div className={containerClasses}>
-    <TodoItemContainer isCompleted={isCompleted}>
+    <TodoItemContainer isCompleted={isCompleted} createdAt={createdAt}>
       <h3>{text}</h3>
       {/* <div className="buttons-container"> */}
+      <p>
+        Created at:&nbsp;
+        {new Date(createdAt).toLocaleDateString()}
+      </p>
       <ButtonsContainer>
         {isCompleted ? null : (
           <CompletedButton onClick={handleComplete}>Mark As Completed</CompletedButton>
