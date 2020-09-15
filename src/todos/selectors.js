@@ -15,4 +15,6 @@ const getIncompleteTodos = createSelector(getTodos, todos =>
   todos.filter(todo => !todo.isCompleted),
 );
 
-export { getTodos, getTodosLoading };
+const getCompletedTodos = createSelector(getTodos, todos => todos.filter(todo => todo.isCompleted));
+
+export { getTodos, getTodosLoading, getIncompleteTodos, getCompletedTodos };
